@@ -13,8 +13,9 @@ const HomeCard = ({id, title, image, types}) => {
         <img src={image} alt={`Pokemon ${title}`} /></Link>
         <p className="pokeName">{title}</p>
         <ul className="typesCreate">
-        {types.map((type) => (
-        <span className={type}>{type}</span>
+        {types.map((type, index) => (
+    <span key={index} className={`type ${type}`}>
+      {type}</span>
          ))}
         </ul>
 

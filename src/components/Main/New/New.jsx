@@ -3,24 +3,16 @@ import { useState, useContext } from "react";
 import { PokeContext } from "../../../context/PokeContext";
 import { useForm } from "react-hook-form";
 
-
 const New = () => {
+  const { register, handleSubmit, reset } = useForm();
 
-  const {
-    register,
-    handleSubmit,
-    reset
-  } = useForm();
-
-  const {setPokemons} = useContext(PokeContext)
+  const { setPokemons } = useContext(PokeContext);
   const [isPokemonCreated, setIsPokemonCreated] = useState(false);
 
-
   const onSubmit = (data) => {
-
     if (data.typeOne === data.typeTwo) {
-      alert("Type One and Type Two cannot be the same"); 
-      return; 
+      alert("Type One and Type Two cannot be the same");
+      return;
     }
 
     const newPokemon = {
@@ -29,24 +21,25 @@ const New = () => {
       sprites: {
         other: {
           "official-artwork": {
-            front_default: data.image
-          }
-        }
+            front_default: data.image,
+          },
+        },
       },
-      types: [{ type: { name: data.typeOne } }, { type: { name: data.typeTwo } }],
+      types: [
+        { type: { name: data.typeOne } },
+        { type: { name: data.typeTwo } },
+      ],
     };
 
-  
-    setPokemons((pokemons => [newPokemon, ...pokemons]));
-    setIsPokemonCreated(true)
-    reset();
-  };
-  
-  const clearNewPokemon = () => {
-    setIsPokemonCreated(false)
+    setPokemons((pokemons) => [newPokemon, ...pokemons]);
+    setIsPokemonCreated(true);
     reset();
   };
 
+  const clearNewPokemon = () => {
+    setIsPokemonCreated(false);
+    reset();
+  };
 
   const types = [
     { value: "normal", label: "Normal" },
@@ -75,92 +68,72 @@ const New = () => {
     <>
       <form className="createPokemon" onSubmit={handleSubmit(onSubmit)}>
         <h1>Create your own Pokemon</h1>
-        <TextField
+        <input
           id="pokemon-id"
+          name="id"
           label="ID"
-          variant="outlined"
           placeholder="ID"
           type="number"
-          helperText="Start from 1293"
+          min={1303}
           className="inputCreate"
-          inputProps={{ min: 1293}}
-          {...register("id", { required: true })}
+          {...register("id")}
         />
-        <TextField
+        <input
           id="pokemon-name"
           label="Name"
-          variant="outlined"
           placeholder="Name"
           type="text"
           className="inputCreate"
           {...register("name", { required: true, minLength: 3 })}
         />
-        <TextField
+        <input
           id="pokemon-image"
           label="Image"
-          variant="outlined"
           placeholder="Image URL"
           type="url"
           className="inputCreate"
           {...register("image", { required: true })}
         />
 
-        <TextField
+        <select
           id="type-one-select"
-          select
+          name="typeOne"
           label="Type One"
-          helperText="Please select a type (required)"
+          placeholder="Please select a type (required)"
           defaultValue=""
           className="inputCreate"
           {...register("typeOne", { required: true })}
         >
           {types.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <option key={option.value} value={option.value}>
               {option.label}
-            </MenuItem>
+            </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
+        <select
           id="type-two-select"
-          select
+          name="typeTwo"
           label="Type Two"
-          helperText="Select a second type (optional)"
+          placeholder="Select a second type (optional)"
           defaultValue=""
           className="inputCreate"
           {...register("typeTwo")}
         >
           {types.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <option key={option.value} value={option.value}>
               {option.label}
-            </MenuItem>
+            </option>
           ))}
-        </TextField>
+        </select>
 
-        <ButtonGroup
-          disableElevation
-          variant="contained"
-          aria-label="Disabled elevation buttons"
-        >
-          <Button type="submit">Send</Button>
-          <Button type="button" onClick={clearNewPokemon}>
-            Clear List
-          </Button>
-        </ButtonGroup>
-        {isPokemonCreated && (
-        <Alert variant="filled" severity="success">
-          Pokemon has been created!
-        </Alert>
-      )}
+        <button type="submit">Send</button>
+        <button type="button" onClick={clearNewPokemon}>
+          Reset
+        </button>
       </form>
-     
-    
-
     </>
   );
-  
-  
-
 };
 
 export default New;

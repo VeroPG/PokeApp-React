@@ -13,7 +13,7 @@ const Home = () => {
     if (pokemons.length === 0) {
       fetchAllPokemon();
     }
-  });
+  }, [pokemons]);
 
   const fetchAllPokemon = async () => {
     setLoading(true);
@@ -21,7 +21,7 @@ const Home = () => {
 
     try {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/?limit=20`
+        `https://pokeapi.co/api/v2/pokemon/?limit=800`
       );
       allPokemon = response.data.results;
 
@@ -33,13 +33,15 @@ const Home = () => {
       );
 
       setPokemons(pokemonData);
-      // setNexBatch(20); // Update the offset for the next fetch
     } catch (error) {
       console.error("Error fetching Pokemon details:", error);
     } finally {
       setLoading(false);
     }
   };
+
+
+  console.log(pokemons);
 
   return (
     <>

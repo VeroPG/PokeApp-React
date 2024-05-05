@@ -28,27 +28,19 @@ const Form = ({ onSearch, clearList }) => {
     <>
       <h1>Search Pokemon</h1>
       <form onSubmit={handleSubmit}>
-        <TextField
+        <input
+          type="text"
           id="pokemon-name"
           placeholder="Search Pokemon"
           label="Name"
-          variant="outlined"
-          type="text"
           className="inputSearch"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           required
         />
-        <ButtonGroup
-          disableElevation
-          variant="contained"
-          aria-label="Disabled elevation buttons"
-        >
-          <Button type="submit">Send</Button>
-          <Button type="button" onClick={clearList}>
-            Clear List
-          </Button>
-        </ButtonGroup>
+
+        <button type="submit">Send</button>
+        <button onClick={clearList}>Reset</button>
       </form>
     </>
   );
