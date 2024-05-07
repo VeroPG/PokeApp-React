@@ -34,7 +34,7 @@
 
 
 .info>h1 {
-    font-size: 35px;
+    font-size: 1.2rem;
     color: $dark-blue;
     padding: 20px;
     border-radius: 10px;
@@ -51,11 +51,13 @@
     list-style: none;
     font-size: 21px;
     padding: 10px;
+
     &>li {
         border-radius: 20px;
         padding: 5px 50px 5px;
     }
 }
+
 .description {
     quotes: "«""»";
     font-style: italic;
@@ -215,8 +217,39 @@
     margin: 0px 20px;
 }
 
-.baseStats > p {
+.baseStats>p {
     display: flex;
     justify-content: flex-end;
 
+}
+
+/* MEDIA QUERIES PARA ESCRITORIO */
+@media only screen and (min-width: 1200px) {
+    .baseStats li progress {
+        width: 50vw;
+        height: 5vh;
+        margin: 0px 20px;
+    }
+
+    .baseStats li {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .bodyPokemon,
+    .types>li,
+    .description,
+    .moves {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .info>h1 {
+        font-size: 3rem;
+
+    
+    }
 }
