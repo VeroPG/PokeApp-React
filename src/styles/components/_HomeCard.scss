@@ -1,0 +1,45 @@
+@import '../utils/variables.scss';
+
+.cardPokemon {
+    margin: 0.5em;
+    justify-content: center;
+    box-shadow: #573102 5px 6px 20px 0px;
+    border-radius: 0.5em;
+    cursor: pointer;
+    color: $dark-blue;
+    border-radius: 10px;
+    width: 45vw;
+    padding: 0 5%;
+}
+
+.cardPokemon> a > img {
+    width: 35vw;
+    margin: auto;
+    position: relative;
+}
+
+.cardPokemon> p{
+    font-weight: 700;
+}
+
+.typesCreate>span{
+    display: flex;
+    /*color: $type-red;*/
+    margin-right: 8%;
+    font-weight: 600;
+    font-style: oblique;
+}
+
+h3{
+    color: $green;
+}
+
+  /* MEDIA QUERIES PARA ESCRITORIO */
+  @media only screen and (min-width: 1200px) {
+    .cardPokemon{
+        font-size: 1.8rem;
+        padding: 2% 5%;
+    
+    }
+
+}

@@ -30,7 +30,7 @@ const Details = () => {
 
     if (apiPokemon) {
       setPokemonDetails(apiPokemon);
-      if (apiPokemon.id <= 1292) {
+      if (apiPokemon.id <= 1302) {
         fetchDescription(id);
       }
     } setLoading(false);
@@ -47,12 +47,12 @@ const Details = () => {
         setDescription(formatDescription(englishDescription.flavor_text));
       }
     } catch (error) {
-      console.error("Error fetching Pokemon details:", error);
+      console.error("Error recuperando los detalles del Pokemon:", error);
     }
   };
 
   let imageUrl = pokemonDetails?.sprites?.other["official-artwork"]?.front_default || null;
-  const isCreatedPokemon = pokemonDetails && pokemonDetails.id > 1292;
+  const isCreatedPokemon = pokemonDetails && pokemonDetails.id > 1302;
 
   return ( loading ? (
     <div className="pokeloading"></div>

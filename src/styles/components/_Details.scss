@@ -1,0 +1,222 @@
+@import '../utils/variables.scss';
+
+
+.detailCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    padding-bottom: 10px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailCard img {
+    max-width: 80vw;
+}
+
+.description {
+    padding: 10px;
+    font-size: 30px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 5px 18px 5px rgba(0, 0, 0, 0.72);
+}
+
+
+.info>h1 {
+    font-size: 35px;
+    color: $dark-blue;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.info>h2 {
+    margin: 10px;
+}
+
+.types {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 21px;
+    padding: 10px;
+    &>li {
+        border-radius: 20px;
+        padding: 5px 50px 5px;
+    }
+}
+.description {
+    quotes: "«""»";
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+}
+
+.normal,
+.fire,
+.water,
+.grass,
+.ice,
+.electric,
+.poison,
+.rock,
+.flying,
+.psychic,
+.ghost,
+.bug,
+.dragon,
+.ground,
+.fighting,
+.steel,
+.shadow,
+.dark,
+.fairy {
+    display: flex;
+    flex-direction: row;
+    font-size: 21px;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.normal {
+    color: $normal
+}
+
+.fire {
+    color: $fire
+}
+
+.water {
+    color: $water
+}
+
+.grass {
+    color: $grass;
+}
+
+.ice {
+    color: $ice;
+}
+
+.electric {
+    color: $electric;
+}
+
+.poison {
+    color: $poison;
+
+}
+
+.rock {
+    color: $rock
+}
+
+.flying {
+    color: $flying;
+}
+
+.psychic {
+    color: $psychic;
+}
+
+.ghost {
+    color: $ghost;
+}
+
+.bug {
+    color: $bug;
+}
+
+.dragon {
+    color: $dragon;
+}
+
+.ground {
+    color: $ground;
+}
+
+.fighting {
+    color: $fighting;
+
+}
+
+.steel {
+    color: $steel;
+}
+
+.shadow {
+    color: #362a3d;
+}
+
+.dark {
+    color: $dark;
+}
+
+
+.fairy {
+    color: $fairy
+}
+
+.moves {
+    display: flex;
+    list-style: none;
+
+    &>li {
+        margin: 0px 10px;
+
+    }
+
+}
+
+.bodyPokemon {
+
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+
+    &>li {
+        margin: 0px 10px;
+        list-style: none;
+    }
+
+}
+
+
+.baseStats {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.baseStats li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 10px;
+}
+
+
+.baseStats li progress {
+    width: 50vw;
+    margin: 0px 20px;
+}
+
+.baseStats > p {
+    display: flex;
+    justify-content: flex-end;
+
+}

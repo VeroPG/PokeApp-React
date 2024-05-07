@@ -7,11 +7,12 @@ const New = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const { setPokemons } = useContext(PokeContext);
+  // eslint-disable-next-line no-unused-vars
   const [isPokemonCreated, setIsPokemonCreated] = useState(false);
 
   const onSubmit = (data) => {
     if (data.typeOne === data.typeTwo) {
-      alert("Type One and Type Two cannot be the same");
+      alert("Type One y Type Two no pueden ser iguales");
       return;
     }
 
@@ -31,7 +32,7 @@ const New = () => {
       ],
     };
 
-    setPokemons((pokemons) => [newPokemon, ...pokemons]);
+    setPokemons((pokemons) => [...pokemons, newPokemon]);
     setIsPokemonCreated(true);
     reset();
   };
@@ -99,7 +100,7 @@ const New = () => {
           id="type-one-select"
           name="typeOne"
           label="Type One"
-          placeholder="Please select a type (required)"
+          placeholder="Elige type one (obligatorio)"
           defaultValue=""
           className="inputCreate"
           {...register("typeOne", { required: true })}
@@ -115,7 +116,7 @@ const New = () => {
           id="type-two-select"
           name="typeTwo"
           label="Type Two"
-          placeholder="Select a second type (optional)"
+          placeholder="Elige type Two(opcional)"
           defaultValue=""
           className="inputCreate"
           {...register("typeTwo")}

@@ -1,13 +1,14 @@
-import React from "react";
-import { Router, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import SearchComponent from "./SearchComponent";
 import Details from "./Details";
 import Home from "./Home";
 import New from "./New";
+
+
 const Main = () => {
   return (
     <>
-      <main>
+      <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/new" element={<New />} />
