@@ -5,7 +5,7 @@ import { PokeContext } from "../../../context/PokeContext";
 
 const SearchComponent = () => {
   const { pokemons } = useContext(PokeContext);
-  const [filteredPokemons, setFilteredPokemons] = useState(null);
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -14,8 +14,8 @@ const SearchComponent = () => {
     setError("");
 
     if (searchedPokemon.trim() === "") {
-      setFilteredPokemons(null);
-      setError("Please enter a Pokemon name.");
+      setFilteredPokemons([]);
+      setError("Introduce un nombre de Pokemon válido.");
     } else {
       setTimeout(() => {
         const results = pokemons.filter((pokemon) =>
@@ -25,8 +25,8 @@ const SearchComponent = () => {
         if (results.length) {
           setFilteredPokemons(results);
         } else {
-          setFilteredPokemons(null);
-          setError(`No Pokemon found named "${searchedPokemon}"`);
+          setFilteredPokemons([]);
+          setError(`No se ha encontrado ningún Pokemon con ese nombre "${searchedPokemon}"`);
         }
 
         setLoading(false);
@@ -35,7 +35,7 @@ const SearchComponent = () => {
   };
 
   const clearList = () => {
-    setFilteredPokemons(null);
+    setFilteredPokemons([]);
     setError("");
   };
 
@@ -52,7 +52,8 @@ const SearchComponent = () => {
   return (
     <>
       <section className="formSearch">
-        <Form onSearch={handleSearch} clearList={clearList} />
+        <Form 
+        onSearch={handleSearch} clearList={clearList} />
       </section>
       {loading ? <div className="pokeloading"></div> : renderPokemons()}
     </>

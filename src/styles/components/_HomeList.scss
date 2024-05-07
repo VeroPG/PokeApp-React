@@ -1,0 +1,6 @@
+@import '../utils/variables.scss';
+
+.homeListPokemon{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

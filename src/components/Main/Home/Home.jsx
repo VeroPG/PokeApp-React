@@ -21,7 +21,8 @@ const Home = () => {
 
     try {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/?limit=800`
+        `https://pokeapi.co/api/v2/pokemon/?limit=40`
+        //`https://pokeapi.co/api/v2/pokemon/?limit=200`
       );
       allPokemon = response.data.results;
 
@@ -39,7 +40,6 @@ const Home = () => {
       setLoading(false);
     }
   };
-
 
   console.log(pokemons);
 

@@ -2,12 +2,11 @@
 import React from "react";
 import Nav from "./Nav"
 
-
-
-
 const Header = () => {
   
-  return <Nav/>;
+  return <header className="header">
+    <Nav />
+    </header>
 };
 
 
